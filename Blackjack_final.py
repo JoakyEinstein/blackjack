@@ -1,11 +1,7 @@
-# Console-Based Blackjack (21)
-# Implementation based on the merged planning notebook
 
 import random
 
-# -----------------------------
-# Card & Deck Utilities
-# -----------------------------
+# Card & Deck
 
 def create_deck():
     """Create a standard Blackjack deck as a list of (rank, value) tuples."""
@@ -31,10 +27,7 @@ def initial_deal(deck):
     return player_hand, dealer_hand
 
 
-# -----------------------------
 # Hand Logic
-# -----------------------------
-
 def calculate_hand_value(hand):
     total = 0
     aces = 0
@@ -53,10 +46,7 @@ def is_blackjack(hand):
     return len(hand) == 2 and calculate_hand_value(hand) == 21
 
 
-# -----------------------------
-# ASCII Card Display
-# -----------------------------
-
+# The Card Display
 def ascii_card(card):
     rank, _ = card
     return [
@@ -102,10 +92,7 @@ def _print_card_rows(cards):
         print('  '.join(card[row] for card in cards))
 
 
-# -----------------------------
 # Turns
-# -----------------------------
-
 def player_turn(deck, player_hand, difficulty, hand_count):
     while True:
         total = calculate_hand_value(player_hand)
@@ -136,9 +123,7 @@ def dealer_turn(deck, dealer_hand):
     return dealer_hand
 
 
-# -----------------------------
 # Round Resolution
-# -----------------------------
 
 def compare_hands(player_hand, dealer_hand):
     player_total = calculate_hand_value(player_hand)
@@ -155,9 +140,7 @@ def compare_hands(player_hand, dealer_hand):
     return "It's a tie."
 
 
-# -----------------------------
 # Game Flow
-# -----------------------------
 
 def play_round(difficulty, hand_count):
     deck = create_deck()
@@ -192,5 +175,5 @@ def main():
     print("Thanks for playing!")
 
 
-# Run the game
+# Run the game FINALLY 
 main()
